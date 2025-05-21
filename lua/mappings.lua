@@ -12,14 +12,8 @@ map("n", "<leader>cx", function()
 end, { desc = "Close All Buffers" })
 map("t", "<C-q>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 map("n", "<C-q>", function()
-  local bufs = vim.fn.getbufinfo { buflisted = 1 }
-
-  if #bufs <= 1 then
-    vim.cmd "q" -- последний буфер → закрываем Neovim
-  else
-    vim.cmd "bd" -- иначе просто закрываем буфер
-  end
-end, { desc = "Close buffer", silent = true })
+  require("nvchad.tabufline").close_buffer()
+end, { desc = "Smart close buffer" })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jj", "<ESC>")
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
