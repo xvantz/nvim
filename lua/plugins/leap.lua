@@ -5,17 +5,15 @@ return {
     "ggandor/leap-ast.nvim",
   },
   keys = {
-    { "s", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-    { "S", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-    { "gs", mode = { "n", "x", "o" }, desc = "Leap from windows" },
-    { "<leader>j", mode = { "n", "x", "o" }, desc = "Leap: Jump to word" },
-    { "<leader>J", mode = { "n", "x", "o" }, desc = "Leap: Jump to line" },
+    { "s",          mode = { "n", "x", "o" }, desc = "Leap forward to" },
+    { "S",          mode = { "n", "x", "o" }, desc = "Leap backward to" },
+    { "gs",         mode = { "n", "x", "o" }, desc = "Leap from windows" },
+    { "<leader>j",  mode = { "n", "x", "o" }, desc = "Leap: Jump to word" },
+    { "<leader>J",  mode = { "n", "x", "o" }, desc = "Leap: Jump to line" },
     { "<leader>fa", mode = { "n", "x", "o" }, desc = "Leap: AST node (function/class)" },
   },
   config = function()
     local leap = require("leap")
-
-    leap.add_default_mappings(true)
 
     vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
     vim.api.nvim_set_hl(0, "LeapMatch", { bg = "#f5c2e7", fg = "#1e1e2e", bold = true })

@@ -11,7 +11,6 @@ return {
   opts = {
     keymap = {
       preset = "super-tab",
-      ["<Esc>"] = { "hide", "fallback" },
     },
 
     sources = {
