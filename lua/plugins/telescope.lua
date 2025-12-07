@@ -8,7 +8,6 @@ return {
       build = "make",
     },
     "nvim-tree/nvim-web-devicons",
-    "folke/todo-comments.nvim",
   },
   keys = {
     { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
@@ -32,6 +31,8 @@ return {
       defaults = {
         prompt_prefix = "Telescope ",
         selection_caret = "➤ ",
+        debounce = 120,
+        cache_picker = { num_pickers = 10 },
         path_display = { "truncate" },
         sorting_strategy = "ascending",
         layout_strategy = "horizontal",
@@ -58,6 +59,7 @@ return {
           "--column",
           "--smart-case",
           "--hidden",
+          "--max-count=5000",
           "--glob=!.git/",
           "--glob=!node_modules/",
           "--glob=!**serverGeneratedData**",

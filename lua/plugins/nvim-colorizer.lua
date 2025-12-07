@@ -2,10 +2,20 @@ return {
   "norcalli/nvim-colorizer.lua",
   event = "BufReadPost",
   config = function()
-    require("colorizer").setup({
-      "*",
-      css = { rgb_fn = true, hsl_fn = true, tailwind = true },
-      html = { names = true },
+    local colorizer = require("colorizer")
+
+    colorizer.setup({
+      "css",
+      "scss",
+      "sass",
+      "less",
+      "html",
+      "svelte",
+      "vue",
+      "javascriptreact",
+      "typescriptreact",
+      "javascript",
+      "typescript",
     }, {
       RGB = true,
       RRGGBB = true,
@@ -15,8 +25,15 @@ return {
       hsl_fn = true,
       css = true,
       css_fn = true,
-      tailwind = "both",
+      tailwind = true,
       mode = "background",
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "TelescopePrompt", "TelescopeResults", "TelescopePreviewer" },
+      callback = function(args)
+        pcall(colorizer.detach_from_buffer, args.buf)
+      end,
     })
   end,
 }
