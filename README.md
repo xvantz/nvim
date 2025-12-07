@@ -4,7 +4,7 @@ An opinionated Neovim configuration powered by `lazy.nvim`, Catppuccin, Treesitt
 
 ## Requirements
 
-- **Neovim** 0.10+ (0.11 nightly recommended for `vim.lsp.config` and the new `vim.fs` helpers).
+- **Neovim** 0.11+ (0.11 recommended for `vim.lsp.config` and the new `vim.fs` helpers).
 - **Git** for bootstrapping plugins via `lazy.nvim`.
 - Build tooling: `gcc`/`clang`, `make`, and **Rust `cargo`** (required because `blink.cmp` compiles a Rust binary) plus **Go** if you rely on Go tooling.
 - **ripgrep** (used by Telescope) and ideally `fd`.
@@ -22,7 +22,6 @@ An opinionated Neovim configuration powered by `lazy.nvim`, Catppuccin, Treesitt
    ```bash
    git clone https://github.com/xvantz/nvim.git ~/.config/nvim
    ```
-   (Replace the URL with your remote; SSH works as well.)
 3. Start Neovim. `lazy.nvim` bootstraps itself, syncs plugins, and then `mason-tool-installer` will fetch the declared LSP/formatter binaries. The first launch can take a bit—watch the status-line spinner and Noice notifications.
 4. Trigger a health check when everything settles:
    ```vim
