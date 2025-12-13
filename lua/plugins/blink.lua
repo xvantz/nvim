@@ -35,6 +35,19 @@ return {
     fuzzy = {
       implementation = "rust",
     },
+
+    cmdline = {
+      keymap = { preset = "inherit" },
+
+      completion = {
+        menu = {
+          auto_show = function()
+            local t = vim.fn.getcmdtype()
+            return t == ":" or t == "@"
+          end,
+        },
+      },
+    },
   },
   config = function(_, opts)
     require("blink.cmp").setup(opts)
