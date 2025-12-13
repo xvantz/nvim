@@ -21,6 +21,14 @@ return {
     { "<leader>f/", "<cmd>Telescope search_history<CR>", desc = "Search history" },
     { "<leader>ft", "<cmd>Telescope todo-comments<CR>", desc = "TODOs" },
     { "<leader>f:", "<cmd>Telescope command_history<CR>", desc = "Command history" },
+    { "<leader>sd", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics (project)" },
+    {
+      "<leader>sD",
+      function()
+        require("telescope.builtin").diagnostics({ bufnr = 0 })
+      end,
+      desc = "Diagnostics (buffer)",
+    },
   },
   config = function()
     local telescope = require("telescope")
@@ -97,6 +105,10 @@ return {
         buffers = { theme = "dropdown", previewer = false },
         oldfiles = { theme = "dropdown" },
         colorscheme = { enable_preview = true },
+        diagnostics = {
+          theme = "ivy",
+          wrap_results = true,
+        },
       },
       extensions = {
         fzf = {
