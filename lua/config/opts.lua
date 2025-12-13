@@ -26,18 +26,19 @@ o.timeoutlen = 400
 
 vim.diagnostic.config({
   virtual_text = { spacing = 2, prefix = "●" },
-  signs = true,
   underline = true,
   update_in_insert = false,
   float = { border = "rounded", source = "if_many" },
   severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.WARN] = " ",
+      [vim.diagnostic.severity.HINT] = "󰌶 ",
+      [vim.diagnostic.severity.INFO] = " ",
+    },
+  },
 })
 vim.o.signcolumn = "yes"
-local signs = { Error = " ", Warn = " ", Hint = "󰌶 ", Info = " " }
-
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
 
 o.clipboard = "unnamedplus"
