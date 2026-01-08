@@ -20,6 +20,36 @@ return {
     { "<leader>7", "<Cmd>BufferLineGoToBuffer 7<CR>", desc = "Go to buffer 7" },
     { "<leader>8", "<Cmd>BufferLineGoToBuffer 8<CR>", desc = "Go to buffer 8" },
     { "<leader>9", "<Cmd>BufferLineGoToBuffer 9<CR>", desc = "Go to buffer 9" },
+    {
+      "<leader>x",
+      function()
+        local bd = require("mini.bufremove").delete
+        local bufnr = vim.api.nvim_get_current_buf()
+        if vim.bo.filetype == "neo-tree" then
+          vim.cmd("Neotree close")
+          return
+        end
+
+        if vim.bo.modified then
+          local choice = vim.fn.confirm(("Save changes in %q?"):format(vim.fn.bufname()), "&Yes\n&No\n&Cancel")
+          if choice == 1 then
+            vim.cmd("w")
+          end
+          if choice == 3 then
+            return
+          end
+        end
+        local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+        bd(bufnr, true)
+        if #buffers <= 1 then
+          local status_ok, _ = pcall(require, "alpha")
+          if status_ok then
+            vim.cmd("Alpha")
+          end
+        end
+      end,
+      desc = "Close Buffer (Smart)",
+    },
   },
   opts = {
     options = {
