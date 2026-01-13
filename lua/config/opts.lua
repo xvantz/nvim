@@ -41,4 +41,21 @@ vim.diagnostic.config({
 })
 vim.o.signcolumn = "yes"
 
+if vim.fn.has("wsl") and vim.fn.executable("wl-copy") and vim.fn.executable("wl-paste") then
+  vim.g.clipboard = {
+    name = "wl-clipboard (wsl)",
+    copy = { ["+"] = "wl-copy", ["*"] = "wl-copy" },
+    paste = { ["+"] = "wl-paste --no-newline", ["*"] = "wl-paste --no-newline" },
+    cache_enabled = 0,
+  }
+end
 o.clipboard = "unnamedplus"
+
+if vim.fn.has("wsl") and vim.env.TMUX and not vim.fn.executable("wl-copy") then
+  vim.schedule(function()
+    vim.notify(
+      "WSL detected + tmux clipboard active.\nInstall wl-clipboard for Windows clipboard integration.",
+      vim.log.levels.INFO
+    )
+  end)
+end
