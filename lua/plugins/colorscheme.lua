@@ -33,7 +33,22 @@ return {
       diffview = true,
       bufferline = true,
       blink_cmp = true,
-      lualine = true,
+      lualine = {
+        all = function(colors)
+          ---@type CtpIntegrationLualineOverride
+          return {
+            normal = {
+              a = { bg = colors.lavender, gui = "italic" },
+              b = { fg = colors.lavender },
+            },
+          }
+        end,
+        macchiato = {
+          normal = {
+            a = { bg = "#abcdef" },
+          },
+        },
+      },
       neo_tree = true,
       treesitter = true,
       mason = true,
