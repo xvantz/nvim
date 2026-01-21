@@ -15,7 +15,7 @@ return {
     vim.keymap.set({ "n", "x" }, "<leader>cx", function()
       opencode.select()
     end, { desc = "AI: Select Action" })
-    vim.keymap.set({ "n", "t" }, "<leader>c", function()
+    vim.keymap.set({ "n", "t" }, "<leader>ci", function()
       opencode.toggle()
     end, { desc = "AI: Toggle Chat" })
     vim.keymap.set({ "n", "x" }, "go", function()
