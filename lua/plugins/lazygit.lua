@@ -8,7 +8,7 @@ return {
   keys = {
     { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit: Open" },
     { "<leader>gf", "<cmd>LazyGitCurrentFile<cr>", desc = "LazyGit: Current File" },
-    { "<leader>gc", "<cmd>LazyGitFilterCurrentFile<cr>", desc = "LazyGit: File History" },
+    { "<leader>gl", "<cmd>LazyGitFilterCurrentFile<cr>", desc = "LazyGit: File History" },
   },
   config = function()
     vim.g.lazygit_floating_window_winblend = 0
