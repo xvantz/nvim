@@ -1,14 +1,18 @@
 return {
   "ggandor/leap.nvim",
+  url = "https://codeberg.org/andyg/leap.nvim",
   lazy = false,
   dependencies = {
     "ggandor/flit.nvim",
     "ggandor/leap-ast.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
+  keys = {
+    { "s", "<Plug>(leap)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+    { "S", "<Plug>(leap-from-window)", mode = "n", desc = "Leap from window" },
+  },
   config = function()
     local leap = require("leap")
-    leap.add_default_mappings()
     leap.opts.highlight_unlabeled_phase_one_targets = true
     leap.opts.safe_labels = "sfjklhodweiraumbcvgt"
     leap.opts.labels = "sfnjklhodweiraumbcvgt"
