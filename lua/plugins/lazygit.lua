@@ -16,5 +16,12 @@ return {
     vim.g.lazygit_floating_window_border_chars = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
     vim.g.lazygit_floating_window_use_plenary = 0
     vim.g.lazygit_use_neovim_remote = 1
+
+    vim.api.nvim_create_autocmd("TermOpen", {
+      pattern = "term://*lazygit*",
+      callback = function()
+        vim.keymap.set("t", "<Esc>", "<Esc>", { buffer = true, nowait = true })
+      end,
+    })
   end,
 }
