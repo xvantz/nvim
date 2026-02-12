@@ -28,6 +28,7 @@ return {
       rust = { "rustfmt" },
       go = { "gofmt" },
       sh = { "shfmt" },
+      nix = { "alejandra" },
     },
     format_on_save = {
       timeout_ms = 3000,
