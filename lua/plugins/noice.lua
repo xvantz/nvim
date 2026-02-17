@@ -5,6 +5,9 @@ return {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
   },
+  keys = {
+    { "<leader>sn", "<cmd>Noice telescope<cr>", desc = "Noice: Search Messages" },
+  },
   opts = {
     lsp = {
       override = {
@@ -75,13 +78,6 @@ return {
         filter = { any = { { event = "msg_show" }, { event = "notify" } } },
       },
     },
-  },
-  keys = {
-    { "<leader>sn", "<cmd>Noice telescope<cr>", desc = "Noice: Search Messages" },
-    { "<leader>sd", "<cmd>Noice dismiss<cr>", desc = "Noice: Dismiss All" },
-    { "<c-enter>", function() require("noice").redirect(vim.fn.getcmdline()) end, mode = "c", desc = "Redirect Cmdline" },
-    { "<leader>nl", "<cmd>Noice last<cr>", desc = "Noice: Last Message" },
-    { "<leader>nh", "<cmd>Noice history<cr>", desc = "Noice: History" },
   },
   config = function(_, opts)
     require("noice").setup(opts)
