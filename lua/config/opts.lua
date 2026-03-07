@@ -19,7 +19,9 @@ o.expandtab = true
 o.shiftwidth = 2
 o.tabstop = 2
 o.smartindent = true
-o.wrap = false
+o.wrap = true
+o.linebreak = true
+o.showbreak = "↪ "
 
 o.updatetime = 200
 o.timeoutlen = 400
