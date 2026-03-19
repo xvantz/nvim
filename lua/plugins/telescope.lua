@@ -1,6 +1,5 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
     {
@@ -10,18 +9,14 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   keys = {
-    { "<leader>ff", "<cmd>Telescope find_files<CR>",      desc = "Find files" },
-    { "<leader>fg", "<cmd>Telescope live_grep<CR>",       desc = "Live grep" },
-    { "<leader>fb", "<cmd>Telescope buffers<CR>",         desc = "Buffers" },
-    { "<leader>fh", "<cmd>Telescope help_tags<CR>",       desc = "Help" },
-    { "<leader>fr", "<cmd>Telescope oldfiles<CR>",        desc = "Recent files" },
-    { "<leader>fc", "<cmd>Telescope colorscheme<CR>",     desc = "Colorschemes" },
-    { "<leader>fk", "<cmd>Telescope keymaps<CR>",         desc = "Keymaps" },
-    { "<leader>fm", "<cmd>Telescope marks<CR>",           desc = "Marks" },
-    { "<leader>f/", "<cmd>Telescope search_history<CR>",  desc = "Search history" },
-    { "<leader>ft", "<cmd>Telescope todo-comments<CR>",   desc = "TODOs" },
-    { "<leader>f:", "<cmd>Telescope command_history<CR>", desc = "Command history" },
-    { "<leader>sD", "<cmd>Telescope diagnostics<CR>",     desc = "Diagnostics (project)" },
+    { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
+    { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Live grep" },
+    { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Buffers" },
+    { "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "Recent files" },
+    { "<leader>fc", "<cmd>Telescope colorscheme<CR>", desc = "Colorschemes" },
+    { "<leader>fk", "<cmd>Telescope keymaps<CR>", desc = "Keymaps" },
+    { "<leader>ft", "<cmd>Telescope todo-comments<CR>", desc = "TODOs" },
+    { "<leader>sD", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics (project)" },
     {
       "<leader>sd",
       function()
