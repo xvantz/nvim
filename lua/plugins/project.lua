@@ -13,7 +13,7 @@ return {
         "~/work/*",
       },
       datapath = vim.fn.stdpath("data"),
-      last_session_on_startup = true,
+      last_session_on_startup = false,
       dashboard_mode = false,
       filetype_autocmd_timeout = 200,
       forget_project_keys = {
