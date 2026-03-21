@@ -29,6 +29,7 @@ return {
       go = { "gofmt" },
       sh = { "shfmt" },
       nix = { "alejandra" },
+      proto = { "buf", "format" },
     },
     format_on_save = {
       timeout_ms = 3000,
