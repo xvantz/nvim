@@ -2,11 +2,8 @@ return {
   filetypes = {
     "javascript",
     "javascriptreact",
-    "javascript.jsx",
     "typescript",
     "typescriptreact",
-    "typescript.tsx",
-    "vue",
   },
   settings = {
     complete_function_calls = true,
@@ -17,6 +14,11 @@ return {
         completion = {
           enableServerSideFuzzyMatch = true,
           entriesLimit = 5000,
+        },
+      },
+      tsserver = {
+        globalPlugins = {
+          { name = "typescript-svelte-plugin", languages = { "svelte" }, configNamespace = "typescript" },
         },
       },
     },
@@ -35,25 +37,4 @@ return {
       },
     },
   },
-  on_attach = function(_, bufnr)
-    vim.keymap.set(
-      "n",
-      "<leader>lo",
-      "<cmd>VtsExec organize_imports<CR>",
-      { buffer = bufnr, desc = "Organize Imports" }
-    )
-    vim.keymap.set("n", "<leader>lu", "<cmd>VtsExec remove_unused<CR>", { buffer = bufnr, desc = "Remove Unused" })
-    vim.keymap.set(
-      "n",
-      "<leader>la",
-      "<cmd>VtsExec add_missing_imports<CR>",
-      { buffer = bufnr, desc = "Add Missing Imports" }
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>lr",
-      "<cmd>VtsExec rename_file<CR>",
-      { buffer = bufnr, desc = "Rename File + Update Imports" }
-    )
-  end,
 }

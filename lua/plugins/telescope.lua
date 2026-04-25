@@ -13,9 +13,19 @@ return {
     { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Live grep" },
     { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "Buffers" },
     { "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "Recent files" },
-    { "<leader>fc", "<cmd>Telescope colorscheme<CR>", desc = "Colorschemes" },
     { "<leader>fk", "<cmd>Telescope keymaps<CR>", desc = "Keymaps" },
     { "<leader>ft", "<cmd>Telescope todo-comments<CR>", desc = "TODOs" },
+    { "<leader>fw", "<cmd>Telescope grep_string<CR>", desc = "Find word under cursor", mode = { "n", "v" } },
+    {
+      "<leader>gr",
+      function()
+        require("telescope.builtin").lsp_references({
+          include_declaration = false,
+          show_line = true,
+        })
+      end,
+      desc = "Lsp references",
+    },
     { "<leader>sD", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics (project)" },
     {
       "<leader>sd",

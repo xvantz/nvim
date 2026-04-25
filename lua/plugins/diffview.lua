@@ -9,7 +9,6 @@ return {
     { "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", desc = "Diffview: Current File History" },
     { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "Diffview: All History" },
     { "<leader>gm", "<cmd>DiffviewOpen origin/main...HEAD<cr>", desc = "Diffview: vs Main" },
-    { "<leader>gr", "<cmd>DiffviewRefresh<cr>", desc = "Diffview: Refresh" },
   },
   opts = {
     enhanced_diff_hl = true,
@@ -58,11 +57,11 @@ return {
     keymaps = {
       disable_defaults = false,
       view = {
-        ["<tab>"]     = "<cmd>DiffviewToggleFiles<cr>",
-        ["<s-tab>"]   = "<cmd>DiffviewToggleFiles<cr>",
+        ["<tab>"] = "<cmd>DiffviewToggleFiles<cr>",
+        ["<s-tab>"] = "<cmd>DiffviewToggleFiles<cr>",
         ["<leader>e"] = "<cmd>DiffviewFocusFiles<cr>",
-        ["q"]         = "<cmd>DiffviewClose<cr>",
-        ["<c-c>"]     = "<cmd>DiffviewClose<cr>",
+        ["q"] = "<cmd>DiffviewClose<cr>",
+        ["<c-c>"] = "<cmd>DiffviewClose<cr>",
       },
       file_panel = {
         ["j"] = "next_entry",
