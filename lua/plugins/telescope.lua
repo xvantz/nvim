@@ -15,7 +15,7 @@ return {
     { "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "Recent files" },
     { "<leader>fk", "<cmd>Telescope keymaps<CR>", desc = "Keymaps" },
     { "<leader>ft", "<cmd>Telescope todo-comments<CR>", desc = "TODOs" },
-    { "<leader>fw", "<cmd>Telescope grep_string<CR>", desc = "Find word under cursor", mode = { "n", "v" } },
+    { "<leader>fw", "<cmd>Telescope grep_string<CR>", desc = "Find word under cursor" },
     {
       "<leader>gr",
       function()
