@@ -14,7 +14,7 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
-      python = { "black", "isort" },
+      python = { "ruff", "format" },
       javascript = { "biome", "prettierd", stop_after_first = true },
       typescript = { "biome", "prettierd", stop_after_first = true },
       javascriptreact = { "biome", "prettierd", stop_after_first = true },
@@ -26,7 +26,7 @@ return {
       markdown = { "prettierd" },
       yaml = { "prettierd" },
       rust = { "rustfmt" },
-      go = { "gofmt" },
+      go = { "goimports", "gofmt" },
       sh = { "shfmt" },
       nix = { "alejandra" },
       proto = { "buf", "format" },
@@ -37,6 +37,8 @@ return {
     },
     formatters = {
       biome = {
+        command = "biome",
+        args = { "check", "--write" },
         condition = function(_, ctx)
           return vim.fs.find({ "biome.json", "biome.jsonc" }, { upward = true, path = ctx.filename })[1]
         end,

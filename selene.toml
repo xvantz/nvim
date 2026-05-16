@@ -1,1 +1,2 @@
-std = "neovim"
+[global_environments]
+add = ["neovim"]
