@@ -27,7 +27,6 @@ return {
       yaml = { "prettierd" },
       rust = { "rustfmt" },
       go = { "goimports", "gofmt" },
-      sh = { "shfmt" },
       nix = { "alejandra" },
       proto = { "buf", "format" },
     },
@@ -38,7 +37,9 @@ return {
     formatters = {
       biome = {
         command = "biome",
-        args = { "check", "--write" },
+        args = { "check", "--write", "$FILENAME" },
+        stdin = false,
+
         condition = function(_, ctx)
           return vim.fs.find({ "biome.json", "biome.jsonc" }, { upward = true, path = ctx.filename })[1]
         end,
